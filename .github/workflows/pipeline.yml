@@ -7,9 +7,6 @@ on:
   workflow_dispatch:
 
 env:
-  DEMO_PROJECT: "Demo.xcodeproj"
-  DEMO_SCHEME: "Demo"
-  DEMO_WATCH_SCHEME: "Demo Watch App"
   PACKAGE_SCHEME: "REPLACE_ME"
 
 jobs:
@@ -96,44 +93,6 @@ jobs:
           -skipPackagePluginValidation
           CODE_SIGN_IDENTITY=""
           CODE_SIGNING_REQUIRED=NO
-
-      # ---------------------------
-      # Build demo
-      # ---------------------------
-
-      - name: Configure demo scheme
-        id: demo_scheme
-        env:
-          PLATFORM: ${{ matrix.target.platform }}
-        run: |
-          if [[ "$PLATFORM" == "watchOS" ]]; then
-            SCHEME="$DEMO_WATCH_SCHEME"
-          else
-            SCHEME="$DEMO_SCHEME"
-          fi
-
-          if [[ $SCHEME == "" ]]; then
-            echo "SCHEME missing"
-            exit 1
-          fi
-
-          echo $SCHEME
-          echo "scheme=$SCHEME" >> "$GITHUB_OUTPUT"
-
-      # We don't release demo, so only build the debug configuration.
-      - name: Build demo
-        working-directory: ./Demo
-        env:
-          DESTINATION: ${{ steps.setup.outputs.destination }}
-          SCHEME: ${{ steps.demo_scheme.outputs.scheme }}
-        run: xcodebuild build
-            -project "$DEMO_PROJECT"
-            -scheme "$SCHEME"
-            -destination "$DESTINATION"
-            -configuration "Debug"
-            -skipPackagePluginValidation
-            CODE_SIGN_IDENTITY=""
-            CODE_SIGNING_REQUIRED=NO
 
       # ---------------------------
       # Final checks
