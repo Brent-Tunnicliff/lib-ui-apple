@@ -7,7 +7,7 @@ import PackageDescription
 // MARK: - Package
 
 let package = Package(
-    name: "REPLACE_ME",
+    name: "CommonUI",
     platforms: [
         .iOS(.v26),
         .macOS(.v26),
@@ -17,18 +17,18 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "REPLACE_ME",
-            targets: ["REPLACE_ME"]
+            name: "CommonUI",
+            targets: ["CommonUI"]
         )
     ],
     dependencies: [
         .package(url: "https://github.com/Brent-Tunnicliff/swift-format-plugin", .upToNextMajor(from: "2.0.0"))
     ],
     targets: [
-        .target(name: "REPLACE_ME"),
+        .target(name: "CommonUI"),
         .testTarget(
-            name: "REPLACE_METests",
-            dependencies: ["REPLACE_ME"]
+            name: "CommonUITests",
+            dependencies: ["CommonUI"]
         ),
     ]
 )

@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "REPLACE_ME"
-               BuildableName = "REPLACE_ME"
-               BlueprintName = "REPLACE_ME"
+               BlueprintIdentifier = "CommonUI"
+               BuildableName = "CommonUI"
+               BlueprintName = "CommonUI"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -55,9 +55,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "REPLACE_ME"
-            BuildableName = "REPLACE_ME"
-            BlueprintName = "REPLACE_ME"
+            BlueprintIdentifier = "CommonUI"
+            BuildableName = "CommonUI"
+            BlueprintName = "CommonUI"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>
