@@ -25,7 +25,13 @@ let package = Package(
         .package(url: "https://github.com/Brent-Tunnicliff/swift-format-plugin", .upToNextMajor(from: "2.0.0"))
     ],
     targets: [
-        .target(name: "CommonUI"),
+        .target(
+            name: "CommonUI",
+            swiftSettings: [
+                // UI library, so MainActor default makes sense.
+                .defaultIsolation(MainActor.self),
+            ]
+        ),
         .testTarget(
             name: "CommonUITests",
             dependencies: ["CommonUI"]
