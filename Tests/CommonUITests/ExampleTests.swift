@@ -4,5 +4,5 @@ import Testing
 @testable import CommonUI
 
 @Test func example() async throws {
-    #expect(Example.shared.getMessage() == "Hello, World!")
+    await #expect(Example.shared.getMessage() == "Hello, World!")
 }
