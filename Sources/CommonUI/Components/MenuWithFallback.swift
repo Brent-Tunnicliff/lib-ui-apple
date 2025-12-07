@@ -21,11 +21,7 @@ public struct MenuWithFallback<Content, Label>: View where Content: View, Label:
         #if os(watchOS)
             fallbackContent
         #else
-            Menu {
-                content
-            } label: {
-                label
-            }
+            menuContent
         #endif
     }
 
@@ -36,6 +32,15 @@ public struct MenuWithFallback<Content, Label>: View where Content: View, Label:
                     content
                 }
             }
+    }
+
+    @available(watchOS, unavailable)
+    private var menuContent: some View {
+        Menu {
+            content
+        } label: {
+            label
+        }
     }
 }
 

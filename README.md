@@ -1,5 +1,7 @@
 # lib-ui-apple
 
+## NOTE: This is still in pre-release state and can contain breaking changes.
+
 Contains common UI components, theming and extensions for my Apple platform apps.
 
 ## Disclaimer
