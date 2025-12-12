@@ -2,7 +2,7 @@
 
 public import SwiftUI
 
-/// Sets position of search bar in a toolbar to bottom toolbar if the platform supports it.
+/// Sets position of search bar location to bottom toolbar if the platform supports it.
 ///
 /// This requires also using `.searchable` view modifier to enable the search bar logic.
 /// Currently having the search bar on bottom bar only supported on iOS, and not even in iPadOS.
@@ -90,6 +90,28 @@ extension Collection where Element == BottomToolbarSearchPlacementIfSupported.Sp
 
     /// Place space trailing the search bar.
     public static var trailing: [Element] { [.trailing] }
+}
+
+// MARK: - View
+
+extension View {
+    /// Sets position of search bar location to bottom toolbar if the platform supports it.
+    ///
+    /// - Parameter spaces: Add fixed spacers to the input positions based on the spacebar if platform supports that. Defaults to none.
+    ///
+    /// - Returns: the view configured with the toolbar item if supported.
+    ///
+    /// This is a convenient wrapper of ``BottomToolbarSearchPlacementIfSupported`` if all you need is the one
+    /// toolbar item added.
+    public func toolbarBottomToolbarSearchPlacementIfSupported(
+        spaces: [BottomToolbarSearchPlacementIfSupported.Space] = []
+    ) -> some View {
+        toolbar {
+            if let searchPlacement = BottomToolbarSearchPlacementIfSupported(spaces: spaces) {
+                searchPlacement
+            }
+        }
+    }
 }
 
 // MARK: - Preview
