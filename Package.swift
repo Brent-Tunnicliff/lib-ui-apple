@@ -27,6 +27,10 @@ let package = Package(
     targets: [
         .target(
             name: "CommonUI",
+            exclude: [
+                "Extensions/If Supported/README.md",
+                "Extensions/With Fallback/README.md",
+            ],
             swiftSettings: [
                 // UI library, so MainActor default makes sense.
                 .defaultIsolation(MainActor.self),
