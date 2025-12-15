@@ -2,8 +2,6 @@
 
 public import SwiftUI
 
-// TODO: Move below to UI package
-
 extension View {
     /// Applies `.glass` to `buttonStyle` if supported by platform, otherwise uses fallback style.
     public func buttonStyleGlassWithFallback<ButtonStyle>(
